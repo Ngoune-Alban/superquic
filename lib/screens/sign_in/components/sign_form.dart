@@ -36,7 +36,7 @@ class _SignFormState extends State<SignForm> {
       });
   }
 
-  static Future<User?> loginUsingEmailPassword(
+  Future<User?> loginUsingEmailPassword(
       {required String email,
       required String password,
       required BuildContext context}) async {
@@ -49,7 +49,7 @@ class _SignFormState extends State<SignForm> {
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         print("No User found for that email");
-        // this should be a proper user feedback message
+        addError(error: kUserNotFound);
       }
     }
     return user;
@@ -103,13 +103,10 @@ class _SignFormState extends State<SignForm> {
                     email: _emailController.text,
                     password: _passwordController.text,
                     context: context);
-                print("user");
-                print(user);
                 if (user != null) {
                   KeyboardUtil.hideKeyboard(context);
                   Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                 }
-                print("User not found");
               }
             },
           ),

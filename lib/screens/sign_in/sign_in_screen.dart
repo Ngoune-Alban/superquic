@@ -27,8 +27,6 @@ class SignInScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           },
-        )
-        // body: Body(),
-        );
+        ));
   }
 }

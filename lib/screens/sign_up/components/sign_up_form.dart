@@ -1,12 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:superking/components/custom_surfix_icon.dart';
 import 'package:superking/components/default_button.dart';
 import 'package:superking/components/form_error.dart';
 import 'package:superking/screens/complete_profile/complete_profile_screen.dart';
+import 'package:superking/screens/sign_in/sign_in_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
-
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -35,6 +36,29 @@ class _SignUpFormState extends State<SignUpForm> {
       });
   }
 
+  Future<User?> createUserWithEmailAndPassword(
+      {required String email,
+      required String password,
+      required BuildContext context}) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User? user;
+    try {
+      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      user = userCredential.user;
+    } on FirebaseAuthException catch (e) {
+      print("Here is an error");
+      print(e);
+      if (e.code == "email-already-in-use") {
+        print("Cet email est déjà pris");
+        addError(error: kUserEmailAlreadyExist);
+      }
+    }
+    return user;
+  }
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -49,12 +73,18 @@ class _SignUpFormState extends State<SignUpForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "Continuer",
-            press: () {
+            text: "Sinscrire",
+            press: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                User? user = await createUserWithEmailAndPassword(
+                    email: _emailController.text,
+                    password: _passwordController.text,
+                    context: context);
+                if (user != null) {
+                  Navigator.pushNamed(context, SignInScreen.routeName);
+                }
               }
             },
           ),
@@ -65,6 +95,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildConformPassFormField() {
     return TextFormField(
+      controller: _passwordController,
       obscureText: true,
       onSaved: (newValue) => conform_password = newValue,
       onChanged: (value) {
@@ -131,6 +162,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
