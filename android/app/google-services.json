@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "577737749623",
+    "project_id": "superquinc",
+    "storage_bucket": "superquinc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577737749623:android:8736f02cb4e87fc1eb4272",
+        "android_client_info": {
+          "package_name": "com.example.superking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577737749623-qi8lla829600paui7g8g3rptc8ohfce7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF8U6Oyt8jxYbGYyFstOlrzGUCwTL-iUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577737749623-qi8lla829600paui7g8g3rptc8ohfce7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
