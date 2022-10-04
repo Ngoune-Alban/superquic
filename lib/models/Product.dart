@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Product {
   final int id;
-  final String title, description;
+  final String title, description, agence, quincallerie;
   final List<String> images;
   final List<Color> colors;
   final double rating, price;
@@ -18,6 +18,8 @@ class Product {
     required this.title,
     required this.price,
     required this.description,
+    required this.quincallerie,
+    required this.agence,
   });
 }
 
@@ -25,75 +27,98 @@ class Product {
 
 List<Product> demoProducts = [
   Product(
-    id: 1,
-    images: [
-      "assets/images/image1.jpg",
-    ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Parpaings oudis",
-    price: 50,
-    description: 'description',
-    rating: 4.8,
-    isFavourite: true,
-    isPopular: true,
-  ),
+      id: 1,
+      images: [
+        "assets/images/image1.jpg",
+      ],
+      colors: [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+      title: "Parpaings oudis",
+      price: 50,
+      description: 'description',
+      rating: 4.8,
+      isFavourite: true,
+      isPopular: true,
+      quincallerie: "ETS Linday",
+      agence: "Essos"),
   Product(
-    id: 2,
-    images: [
-      "assets/images/image2.jpg",
-    ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Carreau en marbre",
-    price: 7000,
-    description: 'description',
-    rating: 4.1,
-    isPopular: true,
-  ),
+      id: 2,
+      images: [
+        "assets/images/image2.jpg",
+      ],
+      colors: [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+      title: "Carreau en marbre",
+      price: 7000,
+      description: 'description',
+      rating: 4.1,
+      isPopular: true,
+      quincallerie: "ETS Linday",
+      agence: "Awae"),
   Product(
-    id: 3,
-    images: [
-      "assets/images/image3.jpg",
-    ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Tôle baque",
-    price: 12000,
-    description: 'description',
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
-  ),
+      id: 3,
+      images: [
+        "assets/images/image3.jpg",
+      ],
+      colors: [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+      title: "Tôle baque",
+      price: 12000,
+      description: 'description',
+      rating: 4.1,
+      isFavourite: true,
+      isPopular: true,
+      quincallerie: "ETS Linday",
+      agence: "Nkomo"),
   Product(
-    id: 4,
-    images: [
-      "assets/images/image4.jpg",
-    ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Fer à béton",
-    price: 6000,
-    description: 'Diamètre 50 mm',
-    rating: 4.1,
-    isFavourite: true,
-  ),
+      id: 4,
+      images: [
+        "assets/images/image4.jpg",
+      ],
+      colors: [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+      title: "Fer à béton",
+      price: 6000,
+      description: 'Diamètre 50 mm',
+      rating: 4.1,
+      isFavourite: true,
+      quincallerie: "ETS Linday",
+      agence: "Damas"),
+  Product(
+      id: 5,
+      images: [
+        "assets/images/Image Banner 2.jpg",
+        "assets/images/Image Banner 2.jpg",
+      ],
+      colors: [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+      title: "Ciment",
+      price: 7500,
+      description: 'Diamètre 50 mm',
+      rating: 4.1,
+      isFavourite: true,
+      quincallerie: "ETS Linday",
+      agence: "Nkomo"),
 ];
 
 // const String description =

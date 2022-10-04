@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:superking/screens/home/components/available_product.dart';
 
 import '../../../size_config.dart';
 import 'categories.dart';
@@ -8,7 +9,6 @@ import 'popular_product.dart';
 import 'special_offers.dart';
 
 class Body extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,6 +23,8 @@ class Body extends StatelessWidget {
             SpecialOffers(),
             SizedBox(height: getProportionateScreenWidth(30)),
             PopularProducts(),
+            SizedBox(height: getProportionateScreenWidth(50)),
+            AvailableProduct(),
             SizedBox(height: getProportionateScreenWidth(30)),
           ],
         ),

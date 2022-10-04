@@ -49,14 +49,29 @@ class ProductCard extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 product.title,
-                style: TextStyle(color: Colors.black),
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w800),
                 maxLines: 2,
+              ),
+              Row(
+                children: [
+                  Text(
+                    product.quincallerie + " - ",
+                    style: TextStyle(color: Colors.black, fontSize: 10.0),
+                    maxLines: 2,
+                  ),
+                  Text(
+                    product.agence,
+                    style: TextStyle(color: Colors.black, fontSize: 10.0),
+                    maxLines: 2,
+                  ),
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "\$${product.price}",
+                    "${product.price} F",
                     style: TextStyle(
                       fontSize: getProportionateScreenWidth(18),
                       fontWeight: FontWeight.w600,
