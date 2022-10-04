@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Product {
-  final int id;
+  final String id;
   final String title, description, agence, quincallerie;
   final List<String> images;
   final List<Color> colors;
-  final double rating, price;
+  final double rating;
+  final int price;
   final bool isFavourite, isPopular;
 
   Product({
@@ -27,7 +28,7 @@ class Product {
 
 List<Product> demoProducts = [
   Product(
-      id: 1,
+      id: "1",
       images: [
         "assets/images/image1.jpg",
       ],
@@ -46,7 +47,7 @@ List<Product> demoProducts = [
       quincallerie: "ETS Linday",
       agence: "Essos"),
   Product(
-      id: 2,
+      id: "2",
       images: [
         "assets/images/image2.jpg",
       ],
@@ -64,7 +65,7 @@ List<Product> demoProducts = [
       quincallerie: "ETS Linday",
       agence: "Awae"),
   Product(
-      id: 3,
+      id: "3",
       images: [
         "assets/images/image3.jpg",
       ],
@@ -83,7 +84,7 @@ List<Product> demoProducts = [
       quincallerie: "ETS Linday",
       agence: "Nkomo"),
   Product(
-      id: 4,
+      id: "4",
       images: [
         "assets/images/image4.jpg",
       ],
@@ -101,7 +102,7 @@ List<Product> demoProducts = [
       quincallerie: "ETS Linday",
       agence: "Damas"),
   Product(
-      id: 5,
+      id: "5",
       images: [
         "assets/images/Image Banner 2.jpg",
         "assets/images/Image Banner 2.jpg",

@@ -47,8 +47,11 @@ class _SignFormState extends State<SignForm> {
           email: email, password: password);
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
+      print(e.code);
+      if (e.code == "wrong-password") {
+        addError(error: kWrongPassword);
+      }
       if (e.code == "user-not-found") {
-        print("No User found for that email");
         addError(error: kUserNotFound);
       }
     }
