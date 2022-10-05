@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:superking/models/Product.dart';
@@ -107,4 +108,9 @@ class ProductCard extends StatelessWidget {
       ),
     );
   }
+
+  // Future<File?> getImageFile() async {
+  //   final ref = FirebaseStorage.instance.ref('images/image1.jpg');
+  //   final result = await _getDownloadLink(ref);
+  // }
 }
