@@ -7,7 +7,7 @@ import 'package:superking/screens/details/details_screen.dart';
 import '../constants.dart';
 import '../size_config.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   const ProductCard({
     Key? key,
     this.width = 140,
@@ -19,16 +19,21 @@ class ProductCard extends StatelessWidget {
   final Product product;
 
   @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
       child: SizedBox(
-        width: getProportionateScreenWidth(width),
+        width: getProportionateScreenWidth(widget.width),
         child: GestureDetector(
           onTap: () => Navigator.pushNamed(
             context,
             DetailsScreen.routeName,
-            arguments: ProductDetailsArguments(product: product),
+            arguments: ProductDetailsArguments(product: widget.product),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,15 +46,15 @@ class ProductCard extends StatelessWidget {
                     color: kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Hero(
-                    tag: product.id,
-                    child: Image.asset(product.images[0]),
-                  ),
+                  // child: Hero(
+                  // tag: product.id,
+                  child: Image.asset(widget.product.images[0]),
+                  // ),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
-                product.title,
+                widget.product.title,
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.w800),
                 maxLines: 2,
@@ -57,12 +62,12 @@ class ProductCard extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    product.quincallerie + " - ",
+                    widget.product.quincallerie + " - ",
                     style: TextStyle(color: Colors.black, fontSize: 10.0),
                     maxLines: 2,
                   ),
                   Text(
-                    product.agence,
+                    widget.product.agence,
                     style: TextStyle(color: Colors.black, fontSize: 10.0),
                     maxLines: 2,
                   ),
@@ -72,7 +77,7 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${product.price} F",
+                    "${widget.product.price} F",
                     style: TextStyle(
                       fontSize: getProportionateScreenWidth(18),
                       fontWeight: FontWeight.w600,
@@ -81,20 +86,27 @@ class ProductCard extends StatelessWidget {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(50),
-                    onTap: () {},
+                    onTap: () {
+                      // update the product,
+                      // update the list of product
+                      setState(() {
+                        widget.product.isFavourite =
+                            !widget.product.isFavourite;
+                      });
+                    },
                     child: Container(
                       padding: EdgeInsets.all(getProportionateScreenWidth(8)),
                       height: getProportionateScreenWidth(28),
                       width: getProportionateScreenWidth(28),
                       decoration: BoxDecoration(
-                        color: product.isFavourite
+                        color: widget.product.isFavourite
                             ? kPrimaryColor.withOpacity(0.15)
                             : kSecondaryColor.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset(
                         "assets/icons/Heart Icon_2.svg",
-                        color: product.isFavourite
+                        color: widget.product.isFavourite
                             ? Color(0xFFFF4848)
                             : Color(0xFFDBDEE4),
                       ),
@@ -108,9 +120,4 @@ class ProductCard extends StatelessWidget {
       ),
     );
   }
-
-  // Future<File?> getImageFile() async {
-  //   final ref = FirebaseStorage.instance.ref('images/image1.jpg');
-  //   final result = await _getDownloadLink(ref);
-  // }
 }

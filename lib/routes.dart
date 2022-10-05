@@ -3,6 +3,7 @@ import 'package:flutter_cart/flutter_cart.dart';
 import 'package:superking/screens/cart/cart_screen.dart';
 import 'package:superking/screens/complete_profile/complete_profile_screen.dart';
 import 'package:superking/screens/details/details_screen.dart';
+import 'package:superking/screens/favorites/favorites_screen.dart';
 import 'package:superking/screens/forgot_password/forgot_password_screen.dart';
 import 'package:superking/screens/home/home_screen.dart';
 import 'package:superking/screens/login_success/login_success_screen.dart';
@@ -27,6 +28,7 @@ final Map<String, WidgetBuilder> routes = {
   DetailsScreen.routeName: (context) => DetailsScreen(),
   CartScreen.routeName: (context) => CartScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
+  FavouriteScreen.routeName: (context) => FavouriteScreen(),
 };
 
-final FlutterCart cart =  FlutterCart();
+final FlutterCart cart = FlutterCart();
