@@ -59,21 +59,21 @@ class ProductDescription extends StatelessWidget {
             maxLines: 3,
           ),
         ),
+        SizedBox(height: getProportionateScreenWidth(20)),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-            vertical: 10,
-          ),
-          child: GestureDetector(
-            onTap: () {},
+            padding: EdgeInsets.only(
+              left: getProportionateScreenWidth(20),
+              right: getProportionateScreenWidth(64),
+            ),
             child: Row(
               children: [
-                
-               
+                Text(
+                  "Quantité disponible : ",
+                  style: TextStyle(fontWeight: FontWeight.w800),
+                ),
+                Text(product.quantity.toString()),
               ],
-            ),
-          ),
-        )
+            )),
       ],
     );
   }

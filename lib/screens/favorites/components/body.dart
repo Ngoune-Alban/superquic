@@ -8,34 +8,33 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(20)),
-              child: SectionTitle(title: "Produits favoris", press: () {}),
-            ),
-            SizedBox(height: getProportionateScreenWidth(20)),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  ...List.generate(
-                    demoProducts.length,
-                    (index) {
-                      if (demoProducts[index].isFavourite)
-                        return ProductCard(product: demoProducts[index]);
+      children: [
+        Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          child: SectionTitle(title: "Produits favoris", press: () {}),
+        ),
+        SizedBox(height: getProportionateScreenWidth(20)),
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              ...List.generate(
+                demoProducts.length,
+                (index) {
+                  if (demoProducts[index].isFavourite)
+                    return ProductCard(product: demoProducts[index]);
 
-                      return SizedBox
-                          .shrink(); // here by default width and height is 0
-                    },
-                  ),
-                  SizedBox(width: getProportionateScreenWidth(20)),
-                ],
+                  return SizedBox
+                      .shrink(); // here by default width and height is 0
+                },
               ),
-            )
-          ],
-        ));
+              SizedBox(width: getProportionateScreenWidth(20)),
+            ],
+          ),
+        )
+      ],
+    ));
   }
 }

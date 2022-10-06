@@ -31,7 +31,10 @@ class _AvailableProductState extends State<AvailableProduct> {
               ...List.generate(
                 demoProducts.length,
                 (index) {
-                  return ProductCard(product: demoProducts[index]);
+                  return ProductCard(
+                    product: demoProducts[index],
+                    display: 'row',
+                  );
                 },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),

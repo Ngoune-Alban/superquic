@@ -5,6 +5,7 @@ import 'package:superking/routes.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'cart_card.dart';
 
 class CheckoutCard extends StatelessWidget {
   const CheckoutCard({
@@ -51,7 +52,6 @@ class CheckoutCard extends StatelessWidget {
                   child: SvgPicture.asset("assets/icons/receipt.svg"),
                 ),
                 Spacer(),
-                
               ],
             ),
             SizedBox(height: getProportionateScreenHeight(20)),
@@ -72,8 +72,11 @@ class CheckoutCard extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(190),
                   child: DefaultButton(
-                    text: "Vérifier",
-                    press: () {},
+                    text: "Valider",
+                    press: () {
+                      cart.validateCommand();
+                      // clear the ui;
+                    },
                   ),
                 ),
               ],

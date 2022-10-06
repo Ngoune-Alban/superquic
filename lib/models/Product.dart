@@ -8,6 +8,7 @@ class Product {
   final double rating;
   final int price;
   bool isFavourite, isPopular;
+  int quantity;
 
   Product({
     required this.id,
@@ -21,6 +22,7 @@ class Product {
     required this.description,
     required this.quincallerie,
     required this.agence,
+    required this.quantity,
   });
 }
 
@@ -40,11 +42,12 @@ List<Product> demoProducts = [
       ],
       title: "Parpaings oudis",
       price: 50,
-      description: 'description',
+      description: 'parpains de taille 25 * 20 cm, très solides et résistants',
       rating: 4.8,
+      quantity: 9,
       isFavourite: true,
       isPopular: true,
-      quincallerie: "ETS Linday",
+      quincallerie: "ETS Lindsay",
       agence: "Essos"),
   Product(
       id: "2",
@@ -61,8 +64,9 @@ List<Product> demoProducts = [
       price: 7000,
       description: 'description',
       rating: 4.1,
+      quantity: 20,
       isPopular: true,
-      quincallerie: "ETS Linday",
+      quincallerie: "ETS Lindsay",
       agence: "Awae"),
   Product(
       id: "3",
@@ -79,9 +83,10 @@ List<Product> demoProducts = [
       price: 12000,
       description: 'description',
       rating: 4.1,
+      quantity: 12,
       isFavourite: true,
       isPopular: true,
-      quincallerie: "ETS Linday",
+      quincallerie: "ETS Lindsay",
       agence: "Nkomo"),
   Product(
       id: "4",
@@ -98,8 +103,9 @@ List<Product> demoProducts = [
       price: 6000,
       description: 'Diamètre 50 mm',
       rating: 4.1,
+      quantity: 14,
       isFavourite: true,
-      quincallerie: "ETS Linday",
+      quincallerie: "ETS Lindsay",
       agence: "Damas"),
   Product(
       id: "5",
@@ -117,8 +123,9 @@ List<Product> demoProducts = [
       price: 7500,
       description: 'Diamètre 50 mm',
       rating: 4.1,
+      quantity: 9,
       isFavourite: true,
-      quincallerie: "ETS Linday",
+      quincallerie: "ETS Lindsay",
       agence: "Nkomo"),
 ];
 

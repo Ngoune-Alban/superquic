@@ -16,7 +16,8 @@ class ProfilePic extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage("assets/images/image4.jpg"),
+            backgroundImage:
+                AssetImage("assets/images/Image Popular Product 3.png"),
           ),
           Positioned(
             right: -16,

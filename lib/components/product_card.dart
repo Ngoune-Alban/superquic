@@ -8,15 +8,17 @@ import '../constants.dart';
 import '../size_config.dart';
 
 class ProductCard extends StatefulWidget {
-  const ProductCard({
-    Key? key,
-    this.width = 140,
-    this.aspectRetio = 1.02,
-    required this.product,
-  }) : super(key: key);
+  const ProductCard(
+      {Key? key,
+      this.width = 140,
+      this.aspectRetio = 1.02,
+      required this.product,
+      this.display = "column"})
+      : super(key: key);
 
   final double width, aspectRetio;
   final Product product;
+  final String display;
 
   @override
   State<ProductCard> createState() => _ProductCardState();

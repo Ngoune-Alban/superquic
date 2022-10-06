@@ -68,7 +68,7 @@ class _BodyState extends State<Body> {
                   children: <Widget>[
                     Spacer(),
                     DefaultButton(
-                      text: "Continue",
+                      text: "Continuer",
                       press: () {
                         Navigator.pushNamed(context, SignInScreen.routeName);
                       },

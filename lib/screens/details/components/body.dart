@@ -21,22 +21,23 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _itemCount = 1;
- void _augmente(){
-  setState(() {
-    setState(() {
-      _itemCount++;
-    });
-  });
- }
+  int _itemCount = 0;
+  void _augmente() {
+    if (_itemCount < widget.product.quantity) {
+      setState(() {
+        _itemCount++;
+      });
+    }
+  }
 
-  void _diminue(){
-  setState(() {
-    setState(() {while(_itemCount>1){_itemCount--;}
-      
+  void _diminue() {
+    setState(() {
+      if (_itemCount > 1) {
+        _itemCount--;
+      }
     });
-  });
- }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -55,40 +56,39 @@ class _BodyState extends State<Body> {
                 child: Column(
                   children: [
                     Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-      child: Row(
-        children: [
-          // ...List.generate(
-          //   product.colors.length,
-          //   (index) => ColorDot(
-          //     color: product.colors[index],
-          //     isSelected: index == selectedColor,
-          //   ),
-          // ),
-          Spacer(),
-          RoundedIconBtn(
-            icon: Icons.remove,
-            press: () {
-              _diminue();
-            },
-          ),
-          SizedBox(width: getProportionateScreenWidth(20)),
-          Text(_itemCount.toString()),
-          SizedBox(width: getProportionateScreenWidth(20)),
-          RoundedIconBtn(
-            icon: Icons.add,
-            showShadow: true,
-            press: () {
-              _augmente();
-            },
-          ),
-        ],
-      ),
-    ),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: getProportionateScreenWidth(20)),
+                      child: Row(
+                        children: [
+                          // ...List.generate(
+                          //   product.colors.length,
+                          //   (index) => ColorDot(
+                          //     color: product.colors[index],
+                          //     isSelected: index == selectedColor,
+                          //   ),
+                          // ),
+                          Spacer(),
+                          RoundedIconBtn(
+                            icon: Icons.remove,
+                            press: () {
+                              _diminue();
+                            },
+                          ),
+                          SizedBox(width: getProportionateScreenWidth(20)),
+                          Text(_itemCount.toString()),
+                          SizedBox(width: getProportionateScreenWidth(20)),
+                          RoundedIconBtn(
+                            icon: Icons.add,
+                            showShadow: true,
+                            press: () {
+                              _augmente();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                     TopRoundedContainer(
                       color: Colors.white,
-
                       child: Padding(
                         padding: EdgeInsets.only(
                           left: SizeConfig.screenWidth * 0.15,
@@ -99,7 +99,12 @@ class _BodyState extends State<Body> {
                         child: DefaultButton(
                           text: "Ajouter au bon de commande",
                           press: () {
-                            cart.addToCart(productId: widget.product.id, unitPrice: widget.product.price, productName: widget.product.title, productDetailsObject: widget.product.images[0],quantity: _itemCount);
+                            cart.addToCart(
+                                productId: widget.product.id,
+                                unitPrice: widget.product.price,
+                                productName: widget.product.title,
+                                productDetailsObject: widget.product.images[0],
+                                quantity: _itemCount);
                             print("on ajoute au bon de commande");
                             print(cart.getTotalAmount());
                           },
@@ -117,7 +122,6 @@ class _BodyState extends State<Body> {
   }
 }
 
-
 class ColorDots extends StatefulWidget {
   ColorDots({
     Key? key,
@@ -130,22 +134,24 @@ class ColorDots extends StatefulWidget {
 }
 
 class _ColorDotsState extends State<ColorDots> {
- int _itemCount = 1;
- void _augmente(){
-  setState(() {
+  int _itemCount = 1;
+  void _augmente() {
     setState(() {
-      _itemCount++;
+      setState(() {
+        _itemCount++;
+      });
     });
-  });
- }
+  }
 
-  void _diminue(){
-  setState(() {
-    setState(() {while(_itemCount>1){_itemCount--;}
-      
+  void _diminue() {
+    setState(() {
+      setState(() {
+        if (_itemCount > 1) {
+          _itemCount--;
+        }
+      });
     });
-  });
- }
+  }
 
   @override
   Widget build(BuildContext context) {

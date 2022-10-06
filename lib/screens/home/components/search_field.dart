@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'body.dart';
 
-class SearchField extends StatelessWidget {
+class SearchField extends StatefulWidget {
   const SearchField({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<SearchField> createState() => _SearchFieldState();
+}
+
+class _SearchFieldState extends State<SearchField> {
+  // TextEditingController _searchFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +24,12 @@ class SearchField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        onChanged: (value) => print(value),
+        onChanged: (value) {
+          setState(() {
+            // Body.searchWord = value;
+            print("here is the place of the logic for search");
+          });
+        },
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(20),
